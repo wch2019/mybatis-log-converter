@@ -41,13 +41,13 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <!-- 定义拓展点，比较少用到，一般是用于你去拓展其他人插件功能拓展点，或者是你的插件扩展了 IntelliJ 平台核心功能才会配置到这里 -->
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="MyBatis Log Convert" factoryClass="com.xiaohai.mybatislog.ToolWindowFactory" anchor="right" icon="/icons/mybatis.svg"/>
+        <toolWindow id="MyBatis Log Convert" factoryClass="com.xiaohai.mybatislog.action.ToolWindowFactory" anchor="right" icon="/icons/mybatis.svg"/>
     </extensions>
     <actions>
-        <action id="MyBatisLoggerConverterAction" class="com.xiaohai.mybatislog.ConverterAction" text="MyBatis Log Convert" icon="/icons/mybatis.svg">
+        <action id="MyBatisLoggerConverterAction" class="com.xiaohai.mybatislog.action.ConverterAction" text="MyBatis Log Convert" icon="/icons/mybatis.svg">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
-        <action id="MyBatisLoggerConsoleMouseAction" class="com.xiaohai.mybatislog.ConsoleMouseAction" text="MyBatis Log Convert" icon="/icons/mybatis.svg">
+        <action id="MyBatisLoggerConsoleMouseAction" class="com.xiaohai.mybatislog.action.ConsoleMouseAction" text="MyBatis Log Convert" icon="/icons/mybatis.svg">
             <add-to-group group-id="ConsoleView.PopupMenu" anchor="first"/>
         </action>
     </actions>
