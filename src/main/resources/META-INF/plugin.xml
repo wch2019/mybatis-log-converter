@@ -21,7 +21,7 @@
         <![CDATA[
 	Convert mybatis sql logs into executable sql
 	<br/>
-	<img width="350" height="210" src="/icons/mybatis.png"  alt=""/>
+	<img src="https://gitee.com/wch2019/mybatis-log-converter/raw/master/src/main/resources/images/convert.jpg" width="500"/>
 	<br/>
 	<b>usage:</>
 	<ol>
