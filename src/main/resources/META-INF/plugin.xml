@@ -2,25 +2,35 @@
 <idea-plugin>
     <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
     <!-- 插件id，不可重复，必须唯一。插件的升级后续也是依赖插件id来进行识别的 -->
-    <id>com.xiaohai.mybatis-log-perfect</id>
+    <id>com.xiaohai.mybatis-log-converter</id>
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
     <!--  插件名称 -->
-    <name>Mybatis-log-perfect</name>
+    <name>MyBatis Log Converter</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <!-- 插件开发人员，这里写一下开发者的个人信息. -->
-    <vendor email="1372195290@qq.com" url="https://www.yourcompany.com">xiaohai</vendor>
+    <vendor email="1372195290@qq.com" url="https://www.dotcode.com">xiaohai</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <!--  插件描述，这里一般是写插件的功能介绍啥的 -->
-    <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-  ]]></description>
+    <description>
+        <![CDATA[
+	Convert mybatis sql logs into executable sql
+	<br/>
+	<img width="350" height="210" src="/icons/mybatis.png"  alt=""/>
+	<br/>
+	<b>usage:</>
+	<ol>
+		<li>Click Tool -> MyBatis Log Convert</li>
+		<li>Click MyBatis Log Convert in the console</li>
+	</ol>
+    <a href="https://gitee.com/wch2019/mybatis-log-converter">gitee</a> | <a href="https://gitee.com/wch2019/mybatis-log-converter/issues">issues</a>
+    ]]>
+    </description>
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
@@ -31,17 +41,14 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <!-- 定义拓展点，比较少用到，一般是用于你去拓展其他人插件功能拓展点，或者是你的插件扩展了 IntelliJ 平台核心功能才会配置到这里 -->
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="MyBatisLogger" factoryClass="com.xiaohai.MyBatisLoggerToolWindowFactory" anchor="right"/>
+        <toolWindow id="MyBatis Log Convert" factoryClass="com.xiaohai.mybatislog.ToolWindowFactory" anchor="right" icon="/icons/mybatis.svg"/>
     </extensions>
     <actions>
-        <action id="com.xiaohai.MyBatisLoggerConverterAction" class="com.xiaohai.MyBatisLoggerConverterAction" text="Convert MyBatis Logs">
+        <action id="MyBatisLoggerConverterAction" class="com.xiaohai.mybatislog.ConverterAction" text="MyBatis Log Convert" icon="/icons/mybatis.svg">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
-        <action id="com.xiaohai.MyBatisLoggerConsoleMouseAction "
-                class="com.xiaohai.MyBatisLoggerConsoleMouseAction "
-                text="Custom Right-Click Action"
-                description="This is a custom right-click action">
-            <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="EditorCopy"/>
+        <action id="MyBatisLoggerConsoleMouseAction" class="com.xiaohai.mybatislog.ConsoleMouseAction" text="MyBatis Log Convert" icon="/icons/mybatis.svg">
+            <add-to-group group-id="ConsoleView.PopupMenu" anchor="first"/>
         </action>
     </actions>
 </idea-plugin>

@@ -1,4 +1,4 @@
-package com.xiaohai;
+package com.xiaohai.mybatislog;
 
 import com.github.vertical_blank.sqlformatter.SqlFormatter;
 import com.intellij.openapi.actionSystem.AnAction;
@@ -6,17 +6,20 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.wm.ToolWindow;
+import org.apache.commons.lang3.StringUtils;
 
+import javax.swing.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MyBatisLoggerConverterAction extends AnAction {
+public class ConverterAction extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
         Project project = e.getProject();
-        if (project == null) return;
-
-        ToolWindow toolWindow = MyBatisLoggerToolWindowFactory.getToolWindow(project);
+        if (project == null) {
+            return;
+        }
+        ToolWindow toolWindow = ToolWindowFactory.getToolWindow(project);
         if (toolWindow == null) {
             Messages.showMessageDialog(project, "Tool window not found.", "Error", Messages.getErrorIcon());
             return;
@@ -28,6 +31,7 @@ public class MyBatisLoggerConverterAction extends AnAction {
             // 如果需要处理工具窗口中的内容，可以在此处实现
         });
     }
+
 
     public static String convertLogs(String logs) {
         // 定义提取 SQL 和参数的正则表达式
