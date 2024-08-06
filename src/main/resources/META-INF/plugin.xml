@@ -21,13 +21,11 @@
         <![CDATA[
 	Convert mybatis sql logs into executable sql
 	<br/>
-	<img src="https://gitee.com/wch2019/mybatis-log-converter/raw/master/src/main/resources/images/convert.jpg" width="500"/>
-	<br/>
-	<b>usage:</>
 	<ol>
 		<li>Click Tool -> MyBatis Log Convert</li>
 		<li>Click MyBatis Log Convert in the console</li>
 	</ol>
+	<br/>
     <a href="https://gitee.com/wch2019/mybatis-log-converter">gitee</a> | <a href="https://gitee.com/wch2019/mybatis-log-converter/issues">issues</a>
     ]]>
     </description>
